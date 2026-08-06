@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --void: #070a16;
+    --abyss: #0e1428;
+    --brass: #c9a227;
+    --ember: #ff8a4c;
+    --frost: #8fb8de;
+    --bone: #f2ede3;
+    --ash: #9aa3bc;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-void font-ui text-bone antialiased;
+    overscroll-behavior: none;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.3);
+    color: var(--bone);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  input {
+    @apply bg-transparent;
+  }
+
+  /* Thin, brass-tinted scrollbars. */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 162, 39, 0.28);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 162, 39, 0.5);
+  }
+}
+
+@layer components {
+  /* ---------- surfaces ---------- */
+
+  .panel {
+    @apply rounded-[2px] border border-bone/[0.08] bg-abyss/[0.62] shadow-panel backdrop-blur-md;
+  }
+
+  .panel-quiet {
+    @apply rounded-[2px] border border-bone/[0.06] bg-abyss/40 backdrop-blur-sm;
+  }
+
+  /* An instrument-style label: tiny, spaced, brass. */
+  .eyebrow {
+    @apply font-mono text-[9px] uppercase tracking-instrument text-brass/70;
+  }
+
+  .rule {
+    @apply h-px w-full bg-gradient-to-r from-brass/35 via-bone/10 to-transparent;
+  }
+
+  /* ---------- controls ---------- */
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[2px] border border-bone/12
+           px-3 py-2 font-mono text-[10px] uppercase tracking-wide2 text-bone/80
+           transition-all duration-300 ease-instrument
+           hover:border-brass/55 hover:bg-brass/[0.07] hover:text-bone
+           disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-bone/12
+           disabled:hover:bg-transparent;
+  }
+
+  .btn-primary {
+    @apply border-brass/45 bg-brass/[0.10] text-brass
+           hover:border-brass hover:bg-brass/20 hover:text-bone;
+  }
+
+  .btn-icon {
+    @apply grid h-9 w-9 place-items-center rounded-[2px] border border-bone/12
+           text-bone/70 transition-all duration-300 ease-instrument
+           hover:border-brass/55 hover:bg-brass/[0.07] hover:text-bone;
+  }
+
+  .chip {
+    @apply rounded-[2px] border border-bone/10 px-2 py-1 font-mono text-[10px] text-ash
+           transition-colors duration-200 hover:border-brass/45 hover:text-bone;
+  }
+
+  /* ---------- 3D labels (created imperatively by the engine) ---------- */
+
+  .arc-label {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 0 6px;
+    align-items: center;
+    padding: 3px 8px 4px 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    background: linear-gradient(
+      180deg,
+      rgba(14, 20, 40, 0.72) 0%,
+      rgba(14, 20, 40, 0.42) 100%
+    );
+    border: 1px solid rgba(242, 237, 227, 0.09);
+    border-left-width: 0;
+    backdrop-filter: blur(6px);
+    transform: translateY(-6px);
+    opacity: 0;
+    animation: label-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1.6s;
+  }
+
+  .arc-label__tick {
+    grid-row: 1 / 3;
+    width: 2px;
+    align-self: stretch;
+    margin-right: 2px;
+  }
+
+  .arc-label__name {
+    font-family: Archivo, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgba(242, 237, 227, 0.94);
+  }
+
+  .arc-label__meta {
+    grid-column: 2;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: rgba(154, 163, 188, 0.85);
+  }
+
+  @keyframes label-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------- misc ---------- */
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      rgba(242, 237, 227, 0.35) 0%,
+      rgba(201, 162, 39, 0.95) 45%,
+      rgba(242, 237, 227, 0.35) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hairline-top {
+    @apply relative;
+  }
+  .hairline-top::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Respect the system setting. Ambient motion in the 3D scene is damped
+   separately inside the engine. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .arc-label {
+    opacity: 1;
+    transform: none;
+  }
+}
