@@ -2,6 +2,7 @@
 
 **Your commits, as a place.**
 
+
 Type a GitHub username and walk through it. Repositories become floating islands
 in a dusk sky, activity becomes light, and the whole archipelago is readable —
 every visual property maps to a real number from the GitHub API.
