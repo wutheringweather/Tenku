@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { site } from '@/config/site';
-import { ArrowIcon, KeyIcon } from './Icons';
+import { ArrowIcon, KeyIcon, XIcon } from './Icons';
 import { getToken, setToken } from '@/lib/github';
 
 interface Props {
@@ -29,6 +29,22 @@ export function Portal({ onEnter, onDemo, busy, error, onDismissError }: Props) 
 
   return (
     <div className="pointer-events-none fixed inset-0 z-30 flex flex-col">
+      {/* Top right social link */}
+      {site.links.x && (
+        <div className="animate-riseIn pointer-events-auto absolute right-4 top-4 z-40 sm:right-6 sm:top-6" style={{ animationDelay: '100ms' }}>
+          <a
+            href={site.links.x}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="panel flex items-center gap-2 px-3 py-1.5 font-mono text-[11px] text-ash/80 transition-all duration-300 hover:border-brass/40 hover:text-brass"
+            title="Follow on X (@tenkugithub)"
+          >
+            <XIcon className="text-[13px] text-ash/70 transition-colors group-hover:text-brass" />
+            <span className="tracking-wide">@tenkugithub</span>
+          </a>
+        </div>
+      )}
+
       {/* A downward wash so the type always sits on something darker than the sky. */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-void/85 via-void/35 to-void/80" />
 
@@ -168,6 +184,17 @@ export function Portal({ onEnter, onDemo, busy, error, onDismissError }: Props) 
           <span>{site.meta.build}</span>
           <span className="hidden sm:inline">{site.meta.engine}</span>
           <span className="hidden md:inline">{site.meta.source}</span>
+          {site.links.x && (
+            <a
+              href={site.links.x}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="pointer-events-auto inline-flex items-center gap-1.5 text-ash/70 transition-colors hover:text-brass"
+            >
+              <XIcon className="text-[11px]" />
+              <span>@tenkugithub</span>
+            </a>
+          )}
           <span className="ml-auto hidden text-brass/60 sm:inline">
             Drag to look · Scroll to close in
           </span>
