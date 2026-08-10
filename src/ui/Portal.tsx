@@ -52,7 +52,6 @@ export function Portal({ onEnter, onDemo, busy, error, onDismissError }: Props) 
         <div className="pointer-events-auto w-full max-w-[540px]">
           <div className="animate-riseIn" style={{ animationDelay: '120ms' }}>
             <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-8 bg-brass/50" />
               <span className="eyebrow">A world built from public commits</span>
             </div>
           </div>
