@@ -16,6 +16,7 @@ import { RepoDrawer } from '@/ui/RepoDrawer';
 import { ProfilePanel } from '@/ui/ProfilePanel';
 import { ControlHints, ModeSwitch, Telemetry, type Quality } from '@/ui/Hud';
 import { XIcon } from '@/ui/Icons';
+import { CaBadge } from '@/ui/CaBadge';
 
 export default function App() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -255,6 +256,7 @@ export default function App() {
                   quality={quality}
                   onQuality={setQuality}
                 />
+                <CaBadge size="sm" />
                 {site.links.x && (
                   <a
                     href={site.links.x}

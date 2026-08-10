@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { site } from '@/config/site';
 import { ArrowIcon, KeyIcon, XIcon } from './Icons';
+import { CaBadge } from './CaBadge';
 import { getToken, setToken } from '@/lib/github';
 
 interface Props {
@@ -29,9 +30,10 @@ export function Portal({ onEnter, onDemo, busy, error, onDismissError }: Props) 
 
   return (
     <div className="pointer-events-none fixed inset-0 z-30 flex flex-col">
-      {/* Top right social link */}
-      {site.links.x && (
-        <div className="animate-riseIn pointer-events-auto absolute right-4 top-4 z-40 sm:right-6 sm:top-6" style={{ animationDelay: '100ms' }}>
+      {/* Top right social link & CA */}
+      <div className="animate-riseIn pointer-events-auto absolute right-4 top-4 z-40 sm:right-6 sm:top-6 flex items-center gap-2" style={{ animationDelay: '100ms' }}>
+        <CaBadge />
+        {site.links.x && (
           <a
             href={site.links.x}
             target="_blank"
@@ -42,8 +44,8 @@ export function Portal({ onEnter, onDemo, busy, error, onDismissError }: Props) 
             <XIcon className="text-[13px] text-ash/70 transition-colors group-hover:text-brass" />
             <span className="tracking-wide">@tenkugithub</span>
           </a>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* A downward wash so the type always sits on something darker than the sky. */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-void/85 via-void/35 to-void/80" />

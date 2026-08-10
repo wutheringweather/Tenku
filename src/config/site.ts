@@ -20,6 +20,7 @@ export const site = {
     github: '',
     docs: '',
   },
+  ca: 'sXSzxWVPYYLUafXXsnewDbG2CCFKCp8q13AhgW6pump',
   /** Suggested profiles on the entry screen. Keep them alive and interesting. */
   seeds: ['torvalds', 'antfu', 'gaearon', 'sindresorhus', 'yyx990803'],
 } as const;
