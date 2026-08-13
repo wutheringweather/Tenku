@@ -12,7 +12,7 @@ const SIZE = 108;
 const R = SIZE / 2 - 6;
 
 /**
- * A plan view of the archipelago. The wedge shows where the camera is looking,
+ * A plan view of the garden. The wedge shows where the camera is looking,
  * so this is the only place you can see the whole world at once — the reticle
  * only ever shows what is in front of you.
  */
@@ -65,7 +65,7 @@ export function Radar({ engineRef, count, onSelect, reducedMotion }: Props) {
 
   return (
     <div className="panel pointer-events-auto p-2">
-      <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} aria-label="Archipelago map">
+      <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} aria-label="Garden map">
         <defs>
           <radialGradient id="radar-bg">
             <stop offset="0%" stopColor="#18203C" stopOpacity="0.55" />
@@ -102,7 +102,7 @@ export function Radar({ engineRef, count, onSelect, reducedMotion }: Props) {
           <line x1="0" y1="0" x2="0" y2="30" stroke="#C9A227" strokeWidth="0.5" opacity="0.4" />
         </g>
 
-        {/* islands */}
+        {/* trees */}
         {Array.from({ length: count }, (_, i) => (
           <g
             key={i}
@@ -112,7 +112,7 @@ export function Radar({ engineRef, count, onSelect, reducedMotion }: Props) {
             className="cursor-pointer"
             onClick={() => onSelect(i)}
           >
-            <circle r="1.7" fill="#8FB8DE" />
+            <circle r="1.7" fill="#7CB668" />
             <circle r="6" fill="transparent" />
           </g>
         ))}

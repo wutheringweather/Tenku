@@ -14,10 +14,10 @@ export class Sky {
       side: THREE.BackSide,
       depthWrite: false,
       uniforms: {
-        uZenith: { value: new THREE.Color(0x070a16) },
-        uHorizon: { value: new THREE.Color(0x2a2140) },
-        uGround: { value: new THREE.Color(0x05060d) },
-        uSunColor: { value: new THREE.Color(0xff9a5c) },
+        uZenith: { value: new THREE.Color(0x2f78cc) },
+        uHorizon: { value: new THREE.Color(0x9dd3f0) },
+        uGround: { value: new THREE.Color(0x0a141c) },
+        uSunColor: { value: new THREE.Color(0xfff4d6) },
         uSunDir: { value: this.sunDirection.clone() },
         uTime: { value: 0 },
         uIntensity: { value: 0 },
@@ -32,7 +32,7 @@ export class Sky {
 
   /** Directional light matched to the shader's sun so lighting and sky agree. */
   createSun() {
-    const sun = new THREE.DirectionalLight(0xffb27a, 1.5);
+    const sun = new THREE.DirectionalLight(0xfff2d6, 1.5);
     sun.position.copy(this.sunDirection).multiplyScalar(400);
     sun.name = 'sun';
     return sun;

@@ -50,7 +50,7 @@ mapping. A world that lies about what it shows is worse than no world.
 ```
 t=0.0   camera starts below the cloud sea at (-14, -96, 44)
 t=0.2   sunrise begins, 3.6s ramp
-t=0.35  hub obelisk starts rising
+t=0.35  hub heartwood starts rising
 t=0.6   aether sea fades in
 t=1.0   islands begin materialising, 0.14s stagger by star rank
 t=1.4   motes fade in
@@ -85,7 +85,7 @@ console first when the scene goes blank.
 - `bridgeFrag` relies on `TubeGeometry`'s UV layout: `vUv.x` runs along the tube
   length. Swap the geometry and the pulse direction breaks.
 - Everything additive is `depthWrite: false`. Keep it that way; enabling depth
-  writes on the monoliths makes them punch holes in each other.
+  writes on the stems/heartwood makes them punch holes in each other.
 
 ---
 

@@ -63,11 +63,11 @@
   /* ---------- surfaces ---------- */
 
   .panel {
-    @apply rounded-[2px] border border-bone/[0.08] bg-abyss/[0.62] shadow-panel backdrop-blur-md;
+    @apply rounded-[8px] border border-leaf/[0.16] bg-canopy/[0.68] shadow-panel backdrop-blur-md;
   }
 
   .panel-quiet {
-    @apply rounded-[2px] border border-bone/[0.06] bg-abyss/40 backdrop-blur-sm;
+    @apply rounded-[8px] border border-leaf/[0.12] bg-canopy/45 backdrop-blur-sm;
   }
 
   /* An instrument-style label: tiny, spaced, brass. */
@@ -82,7 +82,7 @@
   /* ---------- controls ---------- */
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-[2px] border border-bone/12
+    @apply inline-flex items-center justify-center gap-2 rounded-[6px] border border-bone/12
            px-3 py-2 font-mono text-[10px] uppercase tracking-wide2 text-bone/80
            transition-all duration-300 ease-instrument
            hover:border-brass/55 hover:bg-brass/[0.07] hover:text-bone
@@ -96,13 +96,13 @@
   }
 
   .btn-icon {
-    @apply grid h-9 w-9 place-items-center rounded-[2px] border border-bone/12
+    @apply grid h-9 w-9 place-items-center rounded-[6px] border border-bone/12
            text-bone/70 transition-all duration-300 ease-instrument
            hover:border-brass/55 hover:bg-brass/[0.07] hover:text-bone;
   }
 
   .chip {
-    @apply rounded-[2px] border border-bone/10 px-2 py-1 font-mono text-[10px] text-ash
+    @apply rounded-[6px] border border-bone/10 px-2 py-1 font-mono text-[10px] text-ash
            transition-colors duration-200 hover:border-brass/45 hover:text-bone;
   }
 
@@ -120,10 +120,11 @@
     user-select: none;
     background: linear-gradient(
       180deg,
-      rgba(14, 20, 40, 0.72) 0%,
-      rgba(14, 20, 40, 0.42) 100%
+      rgba(19, 31, 17, 0.76) 0%,
+      rgba(19, 31, 17, 0.44) 100%
     );
     border: 1px solid rgba(242, 237, 227, 0.09);
+    border-radius: 0 6px 6px 0;
     border-left-width: 0;
     backdrop-filter: blur(6px);
     transform: translateY(-6px);

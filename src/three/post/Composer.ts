@@ -34,9 +34,10 @@ export class Composer {
 
     this.bloom = new UnrealBloomPass(
       new THREE.Vector2(size.width, size.height),
-      0.72, // strength — enough to make the monoliths read as light sources
+      0.72, // strength — enough to make the stems/heartwood read as light sources
       0.62, // radius
-      0.22, // threshold — keeps the rock out of the bloom
+      0.88, // threshold — the blue sky itself sits well below this, so only the
+      // sun disk, glow and emissive foliage bloom, not the whole sky
     );
     this.bloom.enabled = quality.bloom;
     this.composer.addPass(this.bloom);

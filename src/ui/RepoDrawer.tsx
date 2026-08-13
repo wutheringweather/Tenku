@@ -41,7 +41,7 @@ export function RepoDrawer({ island, onClose, onStep, total }: Props) {
       <div className="flex items-start gap-2 p-4 pb-3">
         <div className="min-w-0 flex-1">
           <div className="eyebrow mb-1.5">
-            Island {String(island.index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+            Tree {String(island.index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
           </div>
           <h2 className="break-words font-display text-[26px] leading-[1.05] text-bone">
             {repo.name}
@@ -144,7 +144,7 @@ export function RepoDrawer({ island, onClose, onStep, total }: Props) {
         )}
       </div>
 
-      {/* step through islands */}
+      {/* step through trees */}
       <div className="flex items-center justify-between border-t border-bone/[0.07] px-4 py-2">
         <button
           type="button"

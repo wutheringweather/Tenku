@@ -22,7 +22,7 @@ export function ProfilePanel({ bundle, overflow, onExit }: Props) {
     <div className="panel pointer-events-auto w-[min(320px,calc(100vw-2rem))] animate-riseIn">
       {/* header */}
       <div className="flex items-start gap-3 p-3">
-        <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-[2px] border border-brass/30 bg-slate1">
+        <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-[8px] border border-brass/30 bg-slate1">
           {profile.avatarUrl ? (
             <img
               src={profile.avatarUrl}
@@ -146,11 +146,11 @@ export function ProfilePanel({ bundle, overflow, onExit }: Props) {
             <div className="eyebrow mb-2">Reading the world</div>
             <dl className="space-y-1 font-mono text-[10px] leading-relaxed text-ash">
               {[
-                ['Spire height', 'stars'],
-                ['Island width', 'forks'],
+                ['Tree height', 'stars'],
+                ['Canopy width', 'forks'],
                 ['Altitude', 'how recently it was pushed'],
                 ['Colour', 'primary language'],
-                ['Pulse rate', 'how alive the repo is'],
+                ['Sap flow', 'how alive the repo is'],
               ].map(([k, v]) => (
                 <div key={k} className="flex gap-2">
                   <dt className="w-[76px] shrink-0 text-brass/70">{k}</dt>
@@ -161,7 +161,7 @@ export function ProfilePanel({ bundle, overflow, onExit }: Props) {
             {overflow > 0 && (
               <p className="mt-3 font-mono text-[10px] leading-relaxed text-ash/70">
                 {overflow} more {overflow === 1 ? 'repository is' : 'repositories are'} folded
-                into the centre. The archipelago shows the top 22 by stars.
+                into the centre. The garden shows the top 22 by stars.
               </p>
             )}
           </div>

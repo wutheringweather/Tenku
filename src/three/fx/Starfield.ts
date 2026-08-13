@@ -6,7 +6,7 @@ export class Starfield {
   readonly points: THREE.Points;
   private readonly material: THREE.ShaderMaterial;
 
-  constructor(count = 2600, radius = 1200, seed = 0xa11ce) {
+  constructor(count = 700, radius = 1200, seed = 0xa11ce) {
     const rand = rng(seed);
 
     const positions = new Float32Array(count * 3);
@@ -17,14 +17,15 @@ export class Starfield {
     // Three stellar classes, warm to cold, so the field has depth of colour.
     const classes = [
       new THREE.Color(0xfff0dc),
-      new THREE.Color(0xc9d8ff),
+      new THREE.Color(0xfff3d6),
       new THREE.Color(0xffcfa0),
     ];
 
     for (let i = 0; i < count; i++) {
-      // Bias toward the upper hemisphere — below the archipelago is cloud, not sky.
+      // Bias toward the upper hemisphere — a blue daytime sky, so keep them
+      // away from the horizon band where the grass sea's edge fades out.
       const u = rand();
-      const v = rand() * 0.82 + 0.09;
+      const v = rand() * 0.60 + 0.30;
       const theta = u * Math.PI * 2;
       const phi = Math.acos(2 * v - 1);
       const r = radius * (0.72 + rand() * 0.28);
@@ -57,7 +58,7 @@ export class Starfield {
       blending: THREE.AdditiveBlending,
       uniforms: {
         uTime: { value: 0 },
-        uSize: { value: 2.2 },
+        uSize: { value: 1.3 },
         uPixelRatio: { value: 1 },
       },
     });

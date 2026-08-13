@@ -8,7 +8,7 @@ export const site = {
   wordmark: 'Tenku',
   tagline: 'Your commits, as a place.',
   blurb:
-    'Type a GitHub username and walk through it. Repositories become floating islands. Activity becomes light.',
+    'Type a GitHub username and walk through it. Repositories become living growths in a glasshouse garden. Activity becomes bloom.',
   /** Shown in the entry screen bottom rail. */
   meta: {
     build: 'v1.0',
@@ -20,7 +20,8 @@ export const site = {
     github: '',
     docs: '',
   },
-  ca: 'sXSzxWVPYYLUafXXsnewDbG2CCFKCp8q13AhgW6pump',
+  /** Contract address badge. Leave empty to hide it entirely. */
+  ca: '',
   /** Suggested profiles on the entry screen. Keep them alive and interesting. */
   seeds: ['torvalds', 'antfu', 'gaearon', 'sindresorhus', 'yyx990803'],
 } as const;
@@ -39,6 +40,13 @@ export const palette = {
   frost: 0x8fb8de,
   verdigris: 0x4fb3a0,
   bone: 0xf2ede3,
+  /* garden reskin — terracotta, bark, foliage and bloom accents */
+  soil: 0x3a2b1f,
+  bark: 0x2a2015,
+  moss: 0x2f5233,
+  leaf: 0x7cb668,
+  bloom: 0xe8879c,
+  pollen: 0xf4c56a,
 } as const;
 
 /** World generation constants. Tuning these changes the shape of the archipelago. */

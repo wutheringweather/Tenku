@@ -19,8 +19,8 @@ export class Motes {
     const tints = new Float32Array(count * 3);
 
     const warm = new THREE.Color(0xffc98a);
-    const cool = new THREE.Color(0x8fb8de);
-    const brass = new THREE.Color(0xc9a227);
+    const cool = new THREE.Color(0x9fd68a);
+    const brass = new THREE.Color(0xf4c56a);
 
     for (let i = 0; i < count; i++) {
       // Disc distribution — motes belong to the archipelago, not the void above.
@@ -100,9 +100,9 @@ export class AetherSea {
       side: THREE.DoubleSide,
       uniforms: {
         uTime: { value: 0 },
-        uDeep: { value: new THREE.Color(0x0a1024) },
-        uCrest: { value: new THREE.Color(0x3d3358) },
-        uRim: { value: new THREE.Color(0xffa268) },
+        uDeep: { value: new THREE.Color(0x0d2410) },
+        uCrest: { value: new THREE.Color(0x4a7a35) },
+        uRim: { value: new THREE.Color(0xcfe36a) },
         uReveal: { value: 0 },
       },
     });

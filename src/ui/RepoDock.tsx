@@ -11,9 +11,9 @@ interface Props {
 }
 
 /**
- * Every island, in rank order, as a strip along the bottom of the screen.
- * The tick above each entry is the same height as its monolith, so the dock is
- * a flattened elevation profile of the archipelago.
+ * Every tree, in rank order, as a strip along the bottom of the screen.
+ * The tick above each entry is the same height as its stem and canopy, so the
+ * dock is a flattened elevation profile of the garden.
  */
 export function RepoDock({ islands, selected, hovered, onSelect }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);

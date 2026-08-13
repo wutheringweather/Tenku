@@ -59,8 +59,9 @@ void main() {
   vec3 dir = normalize(vDir);
   float h = dir.y;
 
-  // Three-stop vertical gradient.
-  vec3 col = mix(uHorizon, uZenith, smoothstep(0.0, 0.62, h));
+  // Three-stop vertical gradient. Reaches full zenith blue well before
+  // straight up, since the orbit camera rarely tilts past the horizon band.
+  vec3 col = mix(uHorizon, uZenith, smoothstep(0.0, 0.34, h));
   col = mix(uGround, col, smoothstep(-0.30, 0.02, h));
 
   // Sun disk plus a wide, cheap scatter skirt.

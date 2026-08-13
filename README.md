@@ -3,12 +3,13 @@
 **Your commits, as a place.**
 
 
-Type a GitHub username and walk through it. Repositories become floating islands
-in a dusk sky, activity becomes light, and the whole archipelago is readable —
-every visual property maps to a real number from the GitHub API.
+Type a GitHub username and walk through it. Repositories become living growths
+in a glasshouse garden at golden hour, activity becomes bloom, and the whole
+garden is readable — every visual property maps to a real number from the
+GitHub API.
 
 A revamp of the "GitHub 3D world" idea, rebuilt from scratch with a different
-visual thesis: an astronomical instrument at dusk rather than a neon game HUD.
+visual thesis: a garden grown from a life's work, not a neon game HUD.
 
 ---
 
@@ -54,15 +55,15 @@ Nothing here is decorative. Every property is a number from the API:
 
 | What you see | What it means |
 | --- | --- |
-| Monolith height | Stars (log scaled) |
-| Island width | Forks |
+| Stem + canopy height | Stars (log scaled) |
+| Soil bed width | Forks |
 | Altitude | How recently the repo was pushed — fresh floats high, dormant sinks |
-| Colour | Primary language |
-| Debris ring density | Open issues |
-| Bridge pulse rate | How alive the repo is — daily pushes fire fast, dead repos barely flicker |
+| Colour | Primary language (leaf and blossom tint) |
+| Firefly / pollen density | Open issues |
+| Root pulse rate | How alive the repo is — daily pushes fire fast, dead repos barely flicker |
 | Ring distance from centre | Rank by stars: your best-known work orbits closest |
-| Central obelisk height | Total stars across all repositories |
-| Pillars around the hub | One per day of public activity over the last 90 days |
+| Heartwood height | Total stars across all repositories |
+| Sprout stalks around the mother tree | One per day of public activity over the last 90 days |
 
 ### On the activity ring
 
@@ -76,15 +77,15 @@ never "contributions", because they are not the same thing.
 
 ## Controls
 
-**Orbit** (default) — drag to look, scroll to close in, click an island to visit
-it. `Esc` returns to the whole archipelago. `[` and `]` step between islands.
+**Orbit** (default) — drag to look, scroll to close in, click a tree to visit
+it. `Esc` returns to the whole garden. `[` and `]` step between trees.
 
 **Flight** — `F` to toggle, then click the view to take pointer lock.
 `WASD` to fly, `Space`/`C` for altitude, `Shift` to sprint, click to visit
 whatever is centred in the crosshair.
 
 The reticle is the navigation instrument: a brass ring with a tick at every
-island's true bearing. Bring one to the top of the ring and its name is written
+tree's true bearing. Bring one to the top of the ring and its name is written
 out. That is how you find a repository you cannot currently see.
 
 ---
@@ -111,13 +112,13 @@ src/
 │   ├── CameraRig.ts          orbit + flight modes, bezier cinematics
 │   ├── types.ts
 │   ├── objects/
-│   │   ├── Island.ts         procedural landmass, monolith, debris ring
-│   │   ├── HubIsland.ts      obelisk + instanced activity pillars
-│   │   └── Bridges.ts        tube geometry with travelling pulses
+│   │   ├── Island.ts         procedural soil bed, stem, canopy, fireflies
+│   │   ├── HubIsland.ts      mother tree + instanced sprout stalks
+│   │   └── Bridges.ts        tube geometry with travelling sap pulses
 │   ├── fx/
 │   │   ├── Sky.ts            gradient dome + matched directional light
 │   │   ├── Starfield.ts      instanced points with per-star twinkle
-│   │   └── Atmosphere.ts     drifting motes + the aether cloud sea
+│   │   └── Atmosphere.ts     drifting pollen + the misty cloud sea
 │   ├── shaders/              all GLSL, one file per effect
 │   └── post/Composer.ts      bloom + custom grade pass
 ├── ui/                       React HUD
@@ -134,9 +135,10 @@ are duplicated in `tailwind.config.js` for utility classes — keep the two in s
 
 ## Design
 
-**Direction:** astronomical instrument at dusk. Brass, ember, indigo, bone —
+**Direction:** a glasshouse garden at golden hour. Brass, ember, moss, bloom —
 deliberately not the cyan/magenta cyberpunk default that 3D developer tools reach
-for. The HUD is framed as an astrolabe, not a game overlay.
+for. The HUD is still framed as an astrolabe instrument, not a game overlay —
+the garden is measured, not just decorated.
 
 **Type:** Bodoni Moda (display) / Archivo (interface) / IBM Plex Mono (data).
 The high-contrast didone is doing the work of a 19th-century star atlas plate;
@@ -167,7 +169,7 @@ reduced to zero.
 
 ## Known limits
 
-- 22 islands maximum. Beyond that the archipelago stops being readable; the
+- 22 trees maximum. Beyond that the garden stops being readable; the
   remainder are counted in the profile panel. Raise `world.maxIslands` in
   `site.ts` if you disagree.
 - The activity ring only covers 90 days, because that is roughly as far back as

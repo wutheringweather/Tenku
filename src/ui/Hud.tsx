@@ -52,7 +52,7 @@ interface HintsProps {
 const ORBIT_HINTS: [string, string][] = [
   ['Drag', 'Look around'],
   ['Scroll', 'Move closer'],
-  ['Click', 'Visit an island'],
+  ['Click', 'Visit a tree'],
   ['Esc', 'Back to the whole world'],
 ];
 
@@ -138,7 +138,7 @@ export function Telemetry({ fps, altitude, islands, quality, onQuality }: Teleme
                 key={q}
                 type="button"
                 onClick={() => onQuality(q)}
-                className={`flex-1 rounded-[2px] border px-2 py-1.5 font-mono text-[9px] uppercase tracking-wide2 transition-colors ${
+                className={`flex-1 rounded-[6px] border px-2 py-1.5 font-mono text-[9px] uppercase tracking-wide2 transition-colors ${
                   quality === q
                     ? 'border-brass/60 bg-brass/12 text-brass'
                     : 'border-bone/10 text-ash/70 hover:border-brass/30 hover:text-bone'
@@ -154,7 +154,7 @@ export function Telemetry({ fps, altitude, islands, quality, onQuality }: Teleme
           <div className="h-px bg-bone/[0.07]" />
           <dl className="mt-3 space-y-1 font-mono text-[10px] text-ash">
             <div className="flex justify-between">
-              <dt className="text-ash/55">Islands</dt>
+              <dt className="text-ash/55">Trees</dt>
               <dd className="tabular-nums">{islands}</dd>
             </div>
             <div className="flex justify-between">

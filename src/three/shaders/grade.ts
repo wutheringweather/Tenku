@@ -57,9 +57,9 @@ export const GradeShader = {
       col.g = texture2D(tDiffuse, uv).g;
       col.b = texture2D(tDiffuse, uv - offset).b;
 
-      // Print shaping: lift the shadows toward indigo, pull highlights to brass.
+      // Print shaping: lift the shadows toward deep moss, pull highlights to brass.
       float luma = dot(col, vec3(0.2126, 0.7152, 0.0722));
-      col += vec3(0.02, 0.024, 0.055) * uLift * (1.0 - luma) * 14.0;
+      col += vec3(0.018, 0.026, 0.02) * uLift * (1.0 - luma) * 14.0;
       col = mix(col, col * vec3(1.045, 1.005, 0.93), smoothstep(0.55, 1.0, luma));
 
       // Saturation.

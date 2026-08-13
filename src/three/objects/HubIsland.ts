@@ -4,11 +4,12 @@ import { crystalFrag, crystalVert } from '../shaders/crystal';
 import { clamp, damp, easeOutCubic, rng } from '@/lib/math';
 
 /**
- * The centre of the world: the profile itself.
+ * The centre of the world: the profile itself, as the mother tree.
  *
- * The obelisk scales with total stars. Around it, one pillar per day of public
- * activity over the last 90 days, arranged as a clock — today at twelve, ninety
- * days ago just behind it. Height and glow follow that day's intensity.
+ * The glowing heartwood scales with total stars. Around its base, one sprout
+ * stalk per day of public activity over the last 90 days, arranged as a
+ * clock — today at twelve, ninety days ago just behind it. Height and glow
+ * follow that day's intensity.
  */
 export class HubIsland {
   readonly group = new THREE.Group();
@@ -42,7 +43,7 @@ export class HubIsland {
     const brass = new THREE.Color(0xc9a227);
     const ember = new THREE.Color(0xff8a4c);
 
-    /* ---------------- root and plate ---------------- */
+    /* ---------------- trunk base and soil ring ---------------- */
 
     const rootGeo = new THREE.ConeGeometry(15, 46, 9, 3);
     const rp = rootGeo.attributes.position as THREE.BufferAttribute;
@@ -57,9 +58,9 @@ export class HubIsland {
     this.root = new THREE.Mesh(
       rootGeo,
       new THREE.MeshStandardMaterial({
-        color: 0x171d33,
+        color: 0x2a2015,
         roughness: 0.94,
-        metalness: 0.08,
+        metalness: 0.04,
         flatShading: true,
       }),
     );
@@ -71,9 +72,9 @@ export class HubIsland {
     this.plate = new THREE.Mesh(
       plateGeo,
       new THREE.MeshStandardMaterial({
-        color: 0x232a47,
-        roughness: 0.42,
-        metalness: 0.55,
+        color: 0x33301c,
+        roughness: 0.75,
+        metalness: 0.12,
         emissive: brass.clone().multiplyScalar(0.05),
       }),
     );
@@ -110,20 +111,20 @@ export class HubIsland {
     this.obelisk.renderOrder = 12;
     this.group.add(this.obelisk);
 
-    /* ---------------- activity pillars ---------------- */
+    /* ---------------- sprout stalks ---------------- */
 
     const days = activity.length;
-    const geo = new THREE.BoxGeometry(1, 1, 1);
+    const geo = new THREE.CylinderGeometry(0.12, 0.5, 1, 5, 1, false);
     geo.translate(0, 0.5, 0);
 
     this.pillars = new THREE.InstancedMesh(
       geo,
       new THREE.MeshStandardMaterial({
-        roughness: 0.35,
-        metalness: 0.25,
+        roughness: 0.55,
+        metalness: 0.08,
         // instanceColor drives the diffuse per day; this emissive floor is what
         // lets the busiest days survive the bloom threshold.
-        emissive: new THREE.Color(0x8a6f17),
+        emissive: new THREE.Color(0x4a5a1c),
         emissiveIntensity: 0.55,
         flatShading: true,
       }),
@@ -139,6 +140,8 @@ export class HubIsland {
     this.pillarAngles = new Float32Array(Math.max(1, days));
 
     const ringR = 20.5;
+    const moss = new THREE.Color(0x2f5233);
+    const bloom = new THREE.Color(0xe8879c);
     for (let i = 0; i < days; i++) {
       const day = activity[i];
       // Oldest day sits just left of twelve o'clock, today lands back at twelve.
@@ -147,9 +150,9 @@ export class HubIsland {
       this.pillarHeights[i] = 0.9 + day.intensity * 17;
 
       this.tint
-        .copy(new THREE.Color(0x2b3352))
+        .copy(moss)
         .lerp(brass, day.intensity * 0.75)
-        .lerp(ember, Math.pow(day.intensity, 3) * 0.6);
+        .lerp(bloom, Math.pow(day.intensity, 3) * 0.6);
       this.pillars.setColorAt(i, this.tint);
     }
     if (this.pillars.instanceColor) this.pillars.instanceColor.needsUpdate = true;

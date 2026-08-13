@@ -16,9 +16,11 @@ void main() {
 `;
 
 /**
- * A cloud sea rather than water: layered fbm advected in two directions at
- * different speeds, with the brass rim light picking out the crests. Fades to
- * fully transparent at the far edge so it never terminates on a hard line.
+ * A grass sea rather than water: layered fbm advected in two directions at
+ * different speeds, with the sunlit rim colour picking out the crests. A
+ * second, elongated noise layer adds fine directional grain on top so the
+ * field reads as blades of grass rather than smooth cloud. Fades to fully
+ * transparent at the far edge so it never terminates on a hard line.
  */
 export const aetherFrag = /* glsl */ `
 precision highp float;
@@ -55,6 +57,17 @@ float fbm(vec2 p) {
   return v;
 }
 
+// Elongated, high-frequency streaks — stretched far more on one axis than
+// the other so the noise reads as individual grass blades rather than a
+// uniform grain.
+float blades(vec2 p) {
+  vec2 q1 = vec2(p.x * 52.0, p.y * 6.0);
+  vec2 q2 = vec2(p.x * 41.0 + 30.0, p.y * 5.4 - 12.0) * 1.3;
+  float n1 = noise(q1);
+  float n2 = noise(q2);
+  return mix(n1, n2, 0.5);
+}
+
 void main() {
   vec2 p = vWorld.xz * 0.011;
 
@@ -66,11 +79,17 @@ void main() {
   float deep  = smoothstep(0.18, 0.55, f);
 
   vec3 col = mix(uDeep, uCrest, deep);
-  col = mix(col, uRim, crest * 0.55);
+  col = mix(col, uRim, crest * 0.4);
+
+  // Blade grain, gently drifting as if stirred by wind.
+  float wind = uTime * 0.05;
+  float bl = blades(p * 2.6 + vec2(wind, wind * 0.6)) - 0.5;
+  col += uCrest * bl * 0.30 * deep;
+  col += uRim * max(bl, 0.0) * 0.16 * crest;
 
   // Thin filaments where the layers disagree — reads as wind shear.
   float shear = smoothstep(0.02, 0.0, abs(a - b) - 0.015);
-  col += uRim * shear * 0.35;
+  col += uRim * shear * 0.2;
 
   // Radial fade so the plane dissolves instead of ending.
   float d = length(vWorld.xz);
