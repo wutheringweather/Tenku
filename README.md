@@ -13,6 +13,7 @@ visual thesis: a garden grown from a life's work, not a neon game HUD.
 ---
 
 
+
 ## Run it
 
 ```bash
