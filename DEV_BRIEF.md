@@ -1,4 +1,4 @@
-# Dev brief — Tenku
+# Dev brief — Canopy
 
 Written for whoever picks this up next. Covers the parts that are not obvious
 from reading the code, the traps, and where to extend.

@@ -194,7 +194,7 @@ export function demoBundle(): ProfileBundle {
   const repos: Repo[] = SEED_REPOS.map((r, i) => ({
     id: 1000 + i,
     name: r.name,
-    fullName: `tenku-demo/${r.name}`,
+    fullName: `canopy-demo/${r.name}`,
     description: r.description,
     language: r.language,
     stars: r.stars,
@@ -215,11 +215,11 @@ export function demoBundle(): ProfileBundle {
   return {
     demo: true,
     profile: {
-      login: 'tenku-demo',
+      login: 'canopy-demo',
       name: 'The Cartographer',
       avatarUrl: '',
       bio: 'A sample world, generated locally. Type a real username to build your own.',
-      company: '@tenku',
+      company: '@canopy',
       location: 'Somewhere at dusk',
       blog: null,
       followers: 12840,

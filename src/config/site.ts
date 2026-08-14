@@ -4,8 +4,8 @@
  */
 
 export const site = {
-  name: 'TENKU',
-  wordmark: 'Tenku',
+  name: 'CANOPY',
+  wordmark: 'Canopy',
   tagline: 'Your commits, as a place.',
   blurb:
     'Type a GitHub username and walk through it. Repositories become living growths in a glasshouse garden. Activity becomes bloom.',

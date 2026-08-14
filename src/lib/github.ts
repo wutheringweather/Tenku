@@ -2,7 +2,7 @@ import type { ActivityDay, Profile, ProfileBundle, Repo } from '@/three/types';
 import { world } from '@/config/site';
 
 const API = 'https://api.github.com';
-const TOKEN_KEY = 'tenku.token';
+const TOKEN_KEY = 'canopy.token';
 
 export class GitHubError extends Error {
   constructor(

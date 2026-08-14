@@ -2,7 +2,7 @@ import { hash } from './math';
 
 /**
  * Language accents, shifted warmer/cooler than GitHub's own linguist colours so
- * they sit inside Tenku's dusk palette instead of fighting it.
+ * they sit inside Canopy's dusk palette instead of fighting it.
  */
 const LANGUAGE_COLORS: Record<string, number> = {
   TypeScript: 0x5a9bd8,

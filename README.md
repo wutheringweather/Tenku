@@ -1,4 +1,4 @@
-# Tenku
+# Canopy
 
 **Your commits, as a place.**
 
@@ -66,7 +66,7 @@ Nothing here is decorative. Every property is a number from the API:
 
 ### On the activity ring
 
-GitHub's REST API does **not** expose the contribution graph. Tenku builds an
+GitHub's REST API does **not** expose the contribution graph. Canopy builds an
 honest substitute from `/users/{login}/events/public` — a weighted count of
 public events per day over the last 90 days, where a push carrying twelve commits
 reads heavier than a single star. The UI always calls this "public activity",
