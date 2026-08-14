@@ -1,8 +1,6 @@
 # Canopy
 
-**Your commits, a
-
-a place.**
+**Your commits, as a place.**
 
 Type a GitHub username and walk through it. Repositories become living growths
 in a glasshouse garden at golden hour, activity becomes bloom, and the whole
