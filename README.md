@@ -3,6 +3,7 @@
 
 **Your commits, as a place.**
 
+
 Type a GitHub username and walk through it. Repositories become living growths
 in a glasshouse garden at golden hour, activity becomes bloom, and the whole
 garden is readable — every visual property maps to a real number from the
