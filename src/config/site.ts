@@ -16,7 +16,7 @@ export const site = {
     source: 'github public api',
   },
   links: {
-    x: 'https://x.com/tenkugithub?s=11',
+    x: '',
     github: '',
     docs: '',
   },
