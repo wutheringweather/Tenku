@@ -15,6 +15,7 @@ import { RepoDock } from '@/ui/RepoDock';
 import { RepoDrawer } from '@/ui/RepoDrawer';
 import { ProfilePanel } from '@/ui/ProfilePanel';
 import { ControlHints, ModeSwitch, Telemetry, type Quality } from '@/ui/Hud';
+import { XIcon } from '@/ui/Icons';
 import { CaBadge } from '@/ui/CaBadge';
 
 export default function App() {
@@ -256,6 +257,18 @@ export default function App() {
                   onQuality={setQuality}
                 />
                 <CaBadge size="sm" />
+                {site.links.x && (
+                  <a
+                    href={site.links.x}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="panel pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] text-ash/70 transition-all duration-300 hover:border-brass/40 hover:text-brass"
+                    title="Follow on X (@Canopyegithub)"
+                  >
+                    <XIcon className="text-[12px] text-ash/70 hover:text-brass transition-colors" />
+                    <span className="hidden sm:inline">@Canopyegithub</span>
+                  </a>
+                )}
               </div>
 
               <div className="hidden md:block">
@@ -288,7 +301,20 @@ export default function App() {
             <div className="flex items-end justify-between gap-4 px-4 pb-1">
               <ControlHints mode={mode} locked={locked} />
               <div className="hidden font-mono text-[10px] uppercase tracking-instrument text-brass/40 lg:flex lg:items-center lg:gap-3">
-                {site.name}
+                {site.links.x ? (
+                  <a
+                    href={site.links.x}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="pointer-events-auto flex items-center gap-1.5 text-brass/50 transition-colors hover:text-brass"
+                    title="Follow on X"
+                  >
+                    <XIcon className="text-[11px]" />
+                    <span>{site.name}</span>
+                  </a>
+                ) : (
+                  site.name
+                )}
               </div>
             </div>
 

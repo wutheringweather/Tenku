@@ -16,7 +16,7 @@ export const site = {
     source: 'github public api',
   },
   links: {
-    x: '',
+    x: 'https://x.com/Canopyegithub',
     github: '',
     docs: '',
   },
