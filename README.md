@@ -1,5 +1,6 @@
 # Canopy
 
+
 **Your commits, as a place.**
 
 Type a GitHub username and walk through it. Repositories become living growths
